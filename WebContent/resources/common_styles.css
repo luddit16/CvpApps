@@ -1,0 +1,5 @@
+/* Load bootstrap */
+@import url("bootstrap/css/bootstrap.min.css");
+
+/* Load Admin Panel custom css */
+@import url("dist/css/AdminLTE.min.css");
