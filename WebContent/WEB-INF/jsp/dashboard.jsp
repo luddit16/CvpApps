@@ -469,7 +469,7 @@
         <section class="content-header">
           <h1>
             Dashboard
-            <small>Control panel</small>
+           
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -486,7 +486,7 @@
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <h3>150</h3>
-                  <p>New Orders</p>
+                  <p>Lead Count</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>

@@ -1,22 +1,19 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CVP | Log in</title>
-    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    
     <spring:url value="/resources/common_styles.css" var="commonCSS" />
 	<link href="${commonCSS}" rel="stylesheet" />
-	
 	<spring:url value="/resources/plugins/iCheck/square/blue.css" var="iCheckCSS" />
     <link href="${iCheckCSS}" rel="stylesheet"/>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,17 +26,16 @@
       <div class="login-logo">
       	<spring:url value="/resources/dist/img/cpvapplogo.png" var="cvplogo" />
       	<img alt="CVP Apps" src="${cvplogo}" width="100%"/>
-        <!-- <b>Admin</b>LTE -->
-      </div><!-- /.login-logo -->
+      </div>
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <form action="login.html" method="post">
+        <form:form role="form" action="loginCheck.html" modelAttribute="loginForm" method="POST">
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email">
+           	<form:input path="email" cssClass="form-control" placeholder="Email"/>  
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password">
+            <form:password path="password" cssClass="form-control" placeholder="Password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
@@ -54,20 +50,16 @@
               <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
             </div><!-- /.col -->
           </div>
-        </form>
-
+      	</form:form>
         <div class="social-auth-links text-center">
           <p>- OR -</p>
           <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
           <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
         </div><!-- /.social-auth-links -->
-
         <a href="#">I forgot my password</a><br>
         <a href="register.html" class="text-center">Register a new membership</a>
-
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
-
     <!-- jQuery 2.1.4 -->
     <spring:url value="/resources/plugins/jQuery/jquery-1.12.1.min.js" var="jQueryJS" />
     <script src="${jQueryJS}"></script>
