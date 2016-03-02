@@ -31,11 +31,11 @@
         <p class="login-box-msg">Sign in to start your session</p>
         <form:form role="form" action="loginCheck.html" modelAttribute="loginForm" method="POST">
           <div class="form-group has-feedback">
-           	<form:input path="email" cssClass="form-control" placeholder="Email"/>  
+           	<form:input path="email" cssClass="form-control mandatory" placeholder="Email"/>  
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <form:password path="password" cssClass="form-control" placeholder="Password"/>
+            <form:password path="password" cssClass="form-control mandatory" placeholder="Password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">

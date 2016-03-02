@@ -3,3 +3,6 @@
 
 /* Load Admin Panel custom css */
 @import url("dist/css/AdminLTE.min.css");
+
+/* Load common css */
+@import url("dist/css/common_styles.css");

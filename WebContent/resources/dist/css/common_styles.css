@@ -1,0 +1,24 @@
+input[type = checkbox].css - checkbox {
+    position: absolute;z - index: -1000;left: -1000 px;overflow: hidden;clip: rect(0 0 0 0);height: 1 px;width: 1 px;margin: -1 px;padding: 0;border: 0;
+}
+
+input[type = checkbox].css - checkbox + label.css - label {
+    padding - left: 53 px;
+    height: 48 px;
+    display: inline - block;
+    line - height: 48 px;
+    background - repeat: no - repeat;
+    background - position: 0 0;
+    font - size: 48 px;
+    vertical - align: middle;
+    cursor: pointer;
+
+}
+
+input[type = checkbox].css - checkbox: checked + label.css - label {
+    background - position: 0 - 48 px;
+}
+label.css - label {
+        background - image: url(csscheckbox_eyes.png);
+            -webkit - touch - callout: none; - webkit - user - select: none; - khtml - user - select: none; - moz - user - select: none; - ms - user - select: none; user - select: none;
+        }
