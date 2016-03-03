@@ -4728,30 +4728,3 @@ table.text-center th {
     white-space: normal!important;
   }
 }
-
-/* COPY FROM HERE FOR STYLED CHECKBOX */
-input[type='radio'],input[type='checkbox'] {
-    /* Hide the input, but have it still be clickable */
-    opacity: 0;
-    float: left;
-    width: 18px;
-}
-input[type='radio'] + label,input[type='checkbox'] + label {
-    margin: 0;
-    clear: none;
-
-    /* Left padding makes room for image */
-    padding: 4px 0 5px 33px;
-
-    /* Make look clickable because they are */
-    cursor: pointer;
-
-    background: url(unchecked.png) left center no-repeat;
-}
-
-/*
-    Change from unchecked to checked graphic
-*/
-input[type='radio']:checked + label,input[type='checkbox']:checked + label {
-    background-image: url(checked.png);
-}

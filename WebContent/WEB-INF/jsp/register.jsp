@@ -30,7 +30,7 @@
 
       <div class="register-box-body">
         <p class="login-box-msg">Register a new membership</p>
-        <form:form role="form" action="register.html" modelAttribute="registrationForm" method="POST">
+        <form:form role="form" action="registration.html" modelAttribute="registrationForm" method="POST">
           <div class="form-group has-feedback">
             <form:input path="user_id" cssClass="form-control mandatory" placeholder="User id"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -60,14 +60,20 @@
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-          	<input type="password" id="password_initial" class="form-control" placeholder="Password">
-            <input type="checkbox" id="showPassword1" class="css-checkbox" /><label for="showPassword1" class="css-label">show characters</label>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+			<div class="input-group">
+				<input type="password" id="password_initial" class="form-control" placeholder="Password">
+				<div class="input-group-addon">
+					<input type="checkbox" id="showPassword1" class="css-checkbox" /><label for="showPassword1" class="css-label" title="Show characters"></label>
+				</div>
+			</div>
           </div>
           <div class="form-group has-feedback">
-          	<form:password path="password" cssClass="form-control" placeholder="Retype Password">
-            <input type="checkbox" id="showPassword2" class="css-checkbox" /><label for="showPassword2" class="css-label">show characters</label>
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          	<div class="input-group">
+				<form:password path="password" cssClass="form-control" placeholder="Retype Password"/>
+				<div class="input-group-addon">
+					<input type="checkbox" id="showPassword2" class="css-checkbox" /><label for="showPassword2" class="css-label" title="Show characters"></label>
+				</div>
+			</div>
           </div>
           <div class="row">
             <div class="col-xs-8">
@@ -83,12 +89,6 @@
           </div>
         </form:form>
 
-        <div class="social-auth-links text-center">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
-          <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
-        </div>
-
         <a href="login.html" class="text-center">I already have a membership</a>
       </div><!-- /.form-box -->
     </div><!-- /.register-box -->
@@ -103,37 +103,38 @@
     <script src="${iCheckJS}"></script>
     <script>
       $(function () {
-        $('input').iCheck({
+        $('input[type="checkbox"]').not('.css-checkbox').iCheck({
           checkboxClass: 'icheckbox_square-blue',
           radioClass: 'iradio_square-blue',
           increaseArea: '20%'
         });
       });
       (function ($) {
-    	    $.toggleShowPassword = function (options) {
-    	        var settings = $.extend({
-    	            field: "#password",
-    	            control: "#toggle_show_password",
-    	        }, options);
-    	        var control = $(settings.control);
-    	        var field = $(settings.field);
-    	        control.bind('click', function () {
-    	            if (control.is(':checked')) {
-    	                field.attr('type', 'text');
-    	            } else {
-    	                field.attr('type', 'password');
-    	            }
-    	        });
-    	    };
-    	}(jQuery));
-      $.toggleShowPassword({
-    	    field: '#password_initial',
-    	    control: '#showPassword1'
-    	});
-      $.toggleShowPassword({
+  	    $.toggleShowPassword = function (options) {
+  	        var settings = $.extend({
+  	            field: "#password",
+  	            control: "#toggle_show_password",
+  	        }, options);
+  	        var control = $(settings.control);
+  	        var field = $(settings.field);
+  	        control.bind('click', function () {
+  	            if (control.is(':checked')) {
+  	                field.attr('type', 'text');
+  	            } else {
+  	                field.attr('type', 'password');
+  	            }
+  	        });
+  	    };
+  	}(jQuery));
+    $.toggleShowPassword({
+  	    field: '#password_initial',
+  	    control: '#showPassword1'
+  	});
+    $.toggleShowPassword({
   	    field: '#password',
   	    control: '#showPassword2'
   	});
+     
     </script>
   </body>
 </html>

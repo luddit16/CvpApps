@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cvpapps.form.LoginForm;
-import com.cvpapps.util.PBKDF2Hash;
 
 /**
  * @author cvpapps.com
@@ -21,7 +20,7 @@ import com.cvpapps.util.PBKDF2Hash;
  */
 @Controller
 public class LoginController {
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView initialize(@ModelAttribute("loginForm") LoginForm loginForm) {
  		return new ModelAndView("login");
 	}
@@ -29,24 +28,12 @@ public class LoginController {
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("loginForm") LoginForm loginForm,
 			HttpServletRequest request, Model model) {
-		
-		System.out.println("I am in controller");
-		System.out.println("The Email data is:"+loginForm.getEmail());
-		System.out.println("Original password is "+loginForm.getPassword());
-		
-		String hashedPassword = null;
-		try {
-			hashedPassword=PBKDF2Hash.generateStorngPasswordHash(loginForm.getPassword());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Encrypted password is "+hashedPassword);
  		return new ModelAndView("dashboard");
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView registerNewUser(@ModelAttribute("registrationForm") LoginForm loginForm) {
+		loginForm = null;
  		return new ModelAndView("register");
 	}
 }

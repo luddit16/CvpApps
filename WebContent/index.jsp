@@ -1,3 +1,3 @@
 <%
-response.sendRedirect("welcome.html");
+response.sendRedirect("login.html");
 %>
