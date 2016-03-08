@@ -14,6 +14,13 @@
 	<link href="${commonCSS}" rel="stylesheet" />
 	<spring:url value="/resources/plugins/iCheck/square/blue.css" var="iCheckCSS" />
     <link href="${iCheckCSS}" rel="stylesheet"/>
+    <style>
+    #didq-f-id{
+		text-align:center;
+		border-top: 2px solid grey;
+		background:#fff;    	
+    }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,7 +61,12 @@
         <a href="#">I forgot my password</a><br>
         <a href="register.html" class="text-center">Register a new membership</a>
       </div><!-- /.login-box-body -->
+      <div id="didq-f-id"></div> <script type="text/javascript" src="http://www.jonathanlockwoodhuie.com/quotes-f-js.php"></script>
     </div><!-- /.login-box -->
+    <div class="dailyQoutes">
+    	<!-- <script src="http://wordsmith.org/words/quote.js" type="text/javascript"></script> -->
+    	
+    </div>
     <!-- jQuery 2.1.4 -->
     <spring:url value="/resources/plugins/jQuery/jquery-1.12.1.min.js" var="jQueryJS" />
     <script src="${jQueryJS}"></script>
@@ -71,6 +83,12 @@
           radioClass: 'iradio_square-blue',
           increaseArea: '20%'
         });
+        $("#didq-f-id").find("a,br").remove();
+        $("#didq-f-id").find("em").replaceWith(function(){
+            return $("<blockquote />", {html: $(this).html()});
+        });
+        /* $("#didq-f-id").find("a").remove();
+        $("#didq-f-id").find("br").remove(); */
       });
     </script>
   </body>

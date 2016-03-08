@@ -1,15 +1,31 @@
 package com.cvpapps.dao.impl;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.cvpapps.constants.QueryConstants;
 import com.cvpapps.dao.DaoManager;
+import com.cvpapps.model.CVPLeadMaster;
+import com.cvpapps.model.CVPLeadMasterMapper;
 
 public class DaoManagerImpl implements DaoManager {
 
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
+	
+	
+	@Override
+	public List<CVPLeadMaster> getLeadData(String userId) {
+		CVPLeadMaster cvpLeadMaster = new CVPLeadMaster();
+		List<CVPLeadMaster> leadDataList =  (List<CVPLeadMaster>) jdbcTemplate
+				.query(QueryConstants.getLeadData, new Object[] { userId },
+						new CVPLeadMasterMapper());		
+		
+		return leadDataList;		
+	}
 	
 	public int updateData(String query,Object[] params){
 		int rowsUpdated = jdbcTemplate.update(query,params);
@@ -38,6 +54,8 @@ public class DaoManagerImpl implements DaoManager {
 	public DataSource getDataSource() {
 		return dataSource;
 	}
+
+	
 
 	
 

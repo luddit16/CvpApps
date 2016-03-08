@@ -2,6 +2,7 @@ package com.cvpapps.model;
 
 public class CVPLeadMaster {
 
+	private String leadId;
 	private String date;
 	private String year;
 	private String month;
@@ -119,6 +120,14 @@ public class CVPLeadMaster {
 	
 	
 	
+	
+	
+	public String getLeadId() {
+		return leadId;
+	}
+	public void setLeadId(String leadId) {
+		this.leadId = leadId;
+	}
 	public String getDate() {
 		return date;
 	}
